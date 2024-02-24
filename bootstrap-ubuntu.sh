@@ -65,6 +65,12 @@ echo "========= zsh done"
 ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
 echo "========= git done"
 
+echo "========= tmux start"
+if ! [ -d ~/.tmux/plugins/tpm ]; then
+    echo "========= cloning Tmux Plugin Manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 echo "========= tmux done"
 
@@ -78,3 +84,13 @@ fi
 
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
 echo "========= nvim done"
+
+echo "========= rust start"
+if ! rust --version  &> /dev/null; then
+    echo "========= installing rust"
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+fi
+echo "========= rust done"
+
+
+
