@@ -68,5 +68,13 @@ echo "========= git done"
 ln -sf ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 echo "========= tmux done"
 
+
+echo "========= nvim start"
+
+if ! [ -d ~/.local/share/nvim/site/pack/packer ]; then
+    echo "========= Cloning packer"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
 echo "========= nvim done"
