@@ -15,6 +15,7 @@ lsp_zero.format_on_save({
     },
     servers = {
         ['html'] = { 'html' },
+        ['rust_analyzer'] = { 'rs' },
         ['jdtls'] = { 'java' },
         ['jsonls'] = { 'json' },
         ['yamlls'] = { 'yaml' },
@@ -52,6 +53,7 @@ require('mason-lspconfig').setup({
         'yamlls',
         'lua_ls',
         'jdtls',
+        'rust_analyzer',
         'lemminx',
         'eslint' },
     handlers = {

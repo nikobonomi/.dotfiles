@@ -12,6 +12,11 @@ sudo apt update
 sudo apt install curl tmux exa thefuck -y
 sudo snap install --beta nvim --classic
 
+if ! rust --version  &> /dev/null; then
+    echo "========= installing rust"
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+fi
+
 # ========= check for additional dependencies =========
 function check_command() {
     if ! $1 $2  &> /dev/null
@@ -82,15 +87,5 @@ if ! [ -d ~/.local/share/nvim/site/pack/packer ]; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-ln -sf ~/.dotfiles/nvim ~/.config/nvim
+ln -sfd ~/.dotfiles/nvim ~/.config/nvim
 echo "========= nvim done"
-
-echo "========= rust start"
-if ! rust --version  &> /dev/null; then
-    echo "========= installing rust"
-    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-fi
-echo "========= rust done"
-
-
-
