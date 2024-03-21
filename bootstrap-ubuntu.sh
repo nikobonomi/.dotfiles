@@ -87,5 +87,5 @@ if ! [ -d ~/.local/share/nvim/site/pack/packer ]; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-ln -sfd ~/.dotfiles/nvim ~/.config/nvim
+ln -sfn ~/.dotfiles/nvim ~/.config/nvim
 echo "========= nvim done"

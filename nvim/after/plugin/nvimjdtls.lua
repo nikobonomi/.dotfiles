@@ -169,9 +169,12 @@ local function jdtls_setup(event)
             -- },
             format = {
                 enabled = true,
-                -- settings = {
-                --   profile = 'asdf'
-                -- },
+                settings = {
+                    -- profile = 'Default',
+                    -- url = '~/.config/nvim/resources/intellij-java-format-eclipse.xml'
+                    profile = 'GoogleStyle',
+                    url = '~/.config/nvim/resources/eclipse-java-google-style.xml'
+                },
             }
         },
         signatureHelp = {
