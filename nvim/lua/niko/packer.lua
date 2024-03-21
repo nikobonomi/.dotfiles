@@ -33,8 +33,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    use 'APZelos/blamer.nvim'
-
     use({
         "utilyre/barbecue.nvim",
         tag = "*",
@@ -56,7 +54,8 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use 'mbbill/undotree'
-    use 'tpope/vim-fugitive'
+
+    use 'lewis6991/gitsigns.nvim'
 
     use { "zbirenbaum/copilot.lua" }
     use {
@@ -67,6 +66,8 @@ return require('packer').startup(function(use)
         end
     }
     use 'AndreM222/copilot-lualine'
+
+    use("petertriho/nvim-scrollbar")
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -86,6 +87,7 @@ return require('packer').startup(function(use)
             -- jdtls extension
             { 'mfussenegger/nvim-jdtls' },
             { 'mfussenegger/nvim-dap' },
+            { 'nvim-neotest/nvim-nio' },
             { 'rcarriga/nvim-dap-ui' },
 
         }
