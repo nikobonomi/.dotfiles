@@ -1,4 +1,3 @@
-
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -7,9 +6,11 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -107,9 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ll="exa --icons --color always -l -a"
-alias ls="exa --icons --color always"
-alias lsa="exa --icons --color always -a"
+alias ll="colorls -A"
+alias ls="colorls"
+alias lsa="colorls -lA --sd"
 alias vi="nvim"
 alias cl="clear"
 alias enve="set -o allexport && source .env && set +o allexport"
