@@ -57,3 +57,9 @@ fi
 
 ln -sfn ~/.dotfiles/nvim ~/.config/nvim
 echo "========= nvim done"
+
+
+echo "========= karabiner start"
+
+ln -sfn ~/.dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+echo "========= karabiner done"
