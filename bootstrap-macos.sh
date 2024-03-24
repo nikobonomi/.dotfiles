@@ -30,12 +30,12 @@ if ! [ -d ~/.oh-my-zsh/custom/plugins/zsh-autocomplete ]; then
     git clone --depth=1 https://github.com/marlonrichert/zsh-autocomplete.git ~/.oh-my-zsh/custom/plugins/zsh-autocomplete
 fi
 
-ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
+ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
 
 echo "========= zsh done"
 
-ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/gitconfig ~/.gitconfig
 echo "========= git done"
 
 echo "========= tmux start"
