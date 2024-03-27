@@ -50,6 +50,7 @@ require('mason-lspconfig').setup({
         'angularls',
         'html',
         'jsonls',
+        'marksman',
         'yamlls',
         'lua_ls',
         'jdtls',
