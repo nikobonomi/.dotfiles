@@ -3,6 +3,7 @@
 - Install node with nvm
 - Install ripgrep for the telescope live grep ```sudo apt-get install ripgrep```
 - Install a [clipboard provider](https://neovim.io/doc/user/provider.html#provider-clipboard)
+- Make sure fd is installed
 
 ## Setup
 - Pull the repo in your ```~/.config``` folder and rename the ```nvim-config``` folder to just nvim.   
