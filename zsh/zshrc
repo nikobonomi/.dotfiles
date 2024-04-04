@@ -113,6 +113,7 @@ alias ls="colorls"
 alias lsa="colorls -lA --sd"
 alias vi="nvim"
 alias cl="clear"
+alias fu="fuck"
 alias enve="set -o allexport && source .env && set +o allexport"
 
 

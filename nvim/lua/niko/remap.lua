@@ -11,6 +11,10 @@ vim.keymap.set("n", "<leader>qa", ":qa<CR>")
 vim.keymap.set("n", "<leader>ss", ":w<CR>")
 vim.keymap.set("n", "<leader>qs", ":wq<CR>")
 
+vim.keymap.set("n", "<leader>do", ":DiffviewOpen<CR>")
+vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
+vim.keymap.set("n", "<leader>dr", ":DiffviewRefresh<CR>")
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
