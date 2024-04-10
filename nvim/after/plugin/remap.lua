@@ -1,10 +1,11 @@
 local telescope_builtin = require('telescope.builtin')
 local ufo = require('ufo')
+local harpoon = require("harpoon")
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>")
 
-vim.api.nvim_set_keymap('n', '<A-CR>', '<cmd>FineCmdline<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
 
 vim.keymap.set("n", "<leader>qq", ":q<CR>")
 vim.keymap.set("n", "<leader>qa", ":qa<CR>")
@@ -34,10 +35,22 @@ vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { silent = true });
 
 vim.keymap.set("n", "<leader>co", ":BufferLineCloseOthers<CR>", { silent = true });
 vim.keymap.set("n", "<leader>cc", ":enew<bar>bd #<CR>", { silent = true });
-vim.keymap.set("n", "<C-n>", ":BufferLineCycleNext<CR>", { silent = true });
-vim.keymap.set("n", "<C-p>", ":BufferLineCyclePrev<CR>", { silent = true });
+vim.keymap.set("n", "<C-A-n>", ":BufferLineCycleNext<CR>", { silent = true });
+vim.keymap.set("n", "<C-A-p>", ":BufferLineCyclePrev<CR>", { silent = true });
 
 vim.keymap.set('n', 'zR', ufo.openAllFolds)
 vim.keymap.set('n', 'zM', ufo.closeAllFolds)
 vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
 vim.keymap.set('n', 'zm', ufo.closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+
+-- harpoon
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<A-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<A-j>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<A-k>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<A-k>", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
