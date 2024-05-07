@@ -116,6 +116,30 @@ alias cl="clear"
 alias fu="fuck"
 alias enve="set -o allexport && source .env && set +o allexport"
 
+spring-run() {
+    local debug=false
+    local profile_value=$1
+
+    # Ciclo attraverso tutti i parametri passati alla funzione
+    for arg in "$@"; do
+        case "$arg" in
+            --debug)
+                debug=true
+                ;;
+            *)
+                # Ignora altri parametri non gestiti qui
+                ;;
+        esac
+        shift  # Passa al prossimo parametro
+    done
+
+    # Ora esegui il codice della funzione in base ai parametri
+    if [ "$debug" = true ]; then
+        mvn spring-boot:run -Dspring-boot.run.profiles=$profile_value -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
+    else
+        mvn spring-boot:run -Dspring-boot.run.profiles=$profile_value 
+    fi
+}
 
 
 export NVM_DIR="$HOME/.nvm"

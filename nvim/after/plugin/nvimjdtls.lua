@@ -60,9 +60,11 @@ local function get_jdtls_paths()
         '\n'
     )
 
+
     if java_debug_bundle[1] ~= '' then
         vim.list_extend(path.bundles, java_debug_bundle)
     end
+
 
     cache_vars.paths = path
 
@@ -226,6 +228,7 @@ local function jdtls_setup(event)
         },
     })
 end
+
 
 vim.api.nvim_create_autocmd('FileType', {
     group = java_cmds,

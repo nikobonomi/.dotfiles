@@ -1,11 +1,13 @@
 local telescope_builtin = require('telescope.builtin')
 local ufo = require('ufo')
 local harpoon = require("harpoon")
+local dap = require('dap')
+local dapui = require('dapui')
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>")
 
-vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', ';', '<cmd>FineCmdline<CR>', { noremap = true })
 
 vim.keymap.set("n", "<leader>qq", ":q<CR>")
 vim.keymap.set("n", "<leader>qa", ":qa<CR>")
@@ -54,3 +56,13 @@ vim.keymap.set("n", "<A-k>", function() harpoon:list():select(4) end)
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
+
+-- Debug
+vim.keymap.set('n', '<leader>da', attach_to_debug)
+vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { noremap = true })
+vim.keymap.set('n', '<leader>du', dapui.toggle)
+
+vim.keymap.set('n', '<F5>', dap.continue)
+vim.keymap.set('n', '<F8>', dap.step_over)
+vim.keymap.set('n', '<F7>', dap.step_into)
+vim.keymap.set('n', '<S-F8>', dap.step_out)

@@ -93,9 +93,11 @@ return require('packer').startup(function(use)
 
             -- jdtls extension
             { 'mfussenegger/nvim-jdtls' },
-            { 'mfussenegger/nvim-dap' },
             { 'nvim-neotest/nvim-nio' },
+
             { 'rcarriga/nvim-dap-ui' },
+            { 'rcarriga/cmp-dap' },
+            { 'mfussenegger/nvim-dap' },
 
         }
     }
