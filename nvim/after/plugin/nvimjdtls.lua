@@ -170,7 +170,7 @@ local function jdtls_setup(event)
             --   }
             -- },
             format = {
-                enabled = true,
+                enabled = false,
                 settings = {
                     -- profile = 'Default',
                     -- url = '~/.config/nvim/resources/intellij-java-format-eclipse.xml'

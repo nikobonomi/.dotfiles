@@ -32,6 +32,11 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
 })
 
+vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = { '*.java' },
+    command = 'silent !google-java-format -r %',
+})
+
 
 require('lspconfig').tsserver.setup({
     single_file_support = false,
