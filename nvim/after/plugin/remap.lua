@@ -5,41 +5,45 @@ local dap = require('dap')
 local dapui = require('dapui')
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>")
 
-vim.api.nvim_set_keymap('n', ';', '<cmd>FineCmdline<CR>', { noremap = true })
-
+-- general
 vim.keymap.set("n", "<leader>qq", ":q<CR>")
 vim.keymap.set("n", "<leader>qa", ":qa<CR>")
 vim.keymap.set("n", "<leader>ss", ":w<CR>")
 vim.keymap.set("n", "<leader>qs", ":wq<CR>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
+-- resize splits
+vim.keymap.set("n", "<C-A-j>", "20<C-w>+")
+vim.keymap.set("n", "<C-A-k>", "20<C-w>-")
+vim.keymap.set("n", "<C-A-l>", "20<C-w>>")
+vim.keymap.set("n", "<C-A-h>", "20<C-w><")
+
+-- command window
+vim.api.nvim_set_keymap('n', ';', '<cmd>FineCmdline<CR>', { noremap = true })
+
+-- diffview
 vim.keymap.set("n", "<leader>do", ":DiffviewOpen<CR>")
 vim.keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
 vim.keymap.set("n", "<leader>dr", ":DiffviewRefresh<CR>")
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
-
+-- goto
 vim.keymap.set("n", "<C-g>", ":HopWord<CR>")
 
+--telescope
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fb', function() telescope_builtin.buffers({ sort_mru = true }) end, {})
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
 vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>gf', telescope_builtin.git_files, {})
 
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
 
-vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { silent = true });
+-- filetree
+vim.keymap.set("n", "<leader>fe", ":NvimTreeToggle<CR>")
 
-vim.keymap.set("n", "<leader>co", ":BufferLineCloseOthers<CR>", { silent = true });
-vim.keymap.set("n", "<leader>cc", ":enew<bar>bd #<CR>", { silent = true });
-vim.keymap.set("n", "<C-A-n>", ":BufferLineCycleNext<CR>", { silent = true });
-vim.keymap.set("n", "<C-A-p>", ":BufferLineCyclePrev<CR>", { silent = true });
-
+-- folds
 vim.keymap.set('n', 'zR', ufo.openAllFolds)
 vim.keymap.set('n', 'zM', ufo.closeAllFolds)
 vim.keymap.set('n', 'zr', ufo.openFoldsExceptKinds)
@@ -66,3 +70,7 @@ vim.keymap.set('n', '<F5>', dap.continue)
 vim.keymap.set('n', '<F8>', dap.step_over)
 vim.keymap.set('n', '<F7>', dap.step_into)
 vim.keymap.set('n', '<S-F8>', dap.step_out)
+
+-- signature help
+vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,
+    { silent = true, noremap = true, desc = 'toggle signature' })

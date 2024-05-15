@@ -1,9 +1,18 @@
 local lsp_zero = require('lsp-zero')
 
+local lsp_signature_config = {
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+        border = "rounded"
+    }
+}
+
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp_zero.default_keymaps({ buffer = bufnr, preserve_mappings = true })
+
+    require('lsp_signature').on_attach(lsp_signature_config, bufnr)
 end)
 
 
