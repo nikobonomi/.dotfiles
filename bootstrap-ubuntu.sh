@@ -64,6 +64,7 @@ fi
 
 ln -sf ~/.dotfiles/zsh/zshrc ~/.zshrc
 ln -sf ~/.dotfiles/zsh/p10k.zsh ~/.p10k.zsh
+ln -sfn ~/.dotfiles/zsh/os ~/.oh-my-zsh/custom/os
 
 echo "========= zsh done"
 
