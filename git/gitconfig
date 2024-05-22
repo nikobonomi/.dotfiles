@@ -3,6 +3,7 @@
 	email = 9111900+nikobonomi@users.noreply.github.com
 [core]
 	autocrlf = false
+	editor = nvim
 [credential "https://github.com"]
     helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential 
