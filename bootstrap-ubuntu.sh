@@ -9,7 +9,7 @@ fi
 # ========= install dependencies =========
 sudo apt update
 
-sudo apt install curl tmux exa thefuck -y
+sudo apt install curl tmux thefuck -y
 sudo snap install --beta nvim --classic
 
 if ! rust --version  &> /dev/null; then
