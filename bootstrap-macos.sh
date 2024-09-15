@@ -36,7 +36,7 @@ ln -sfn ~/.dotfiles/zsh/os ~/.oh-my-zsh/custom/os
 
 echo "========= zsh done"
 
-ln -sf ~/.dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/gitconfig_mac ~/.gitconfig
 echo "========= git done"
 
 echo "========= tmux start"
