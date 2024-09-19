@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 
-require('lspconfig').tsserver.setup({
+require('lspconfig').ts_ls.setup({
     single_file_support = false,
     on_attach = function(client, bufnr)
         local opts = { buffer = bufnr }
@@ -57,10 +57,9 @@ require('lspconfig').tsserver.setup({
     end
 })
 
-require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'tsserver',
+        'ts_ls',
         'angularls',
         'html',
         'jsonls',
