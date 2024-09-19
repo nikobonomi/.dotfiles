@@ -1,6 +1,6 @@
 [user]
-	name = Niko
-	email = 9111900+nikobonomi@users.noreply.github.com
+	name = Niko Bonomi
+	email = niko.bonomi@swisspost.ch
 [core]
 	autocrlf = false
 	editor = nvim

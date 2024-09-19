@@ -62,14 +62,15 @@ vim.keymap.set("n", "<C-p>", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<C-n>", function() harpoon:list():next() end)
 
 -- Debug
-vim.keymap.set('n', '<leader>da', attach_to_debug)
+vim.keymap.set('n', '<leader>da', dap.continue)
 vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { noremap = true })
 vim.keymap.set('n', '<leader>du', dapui.toggle)
+vim.keymap.set('n', '<leader>ev', dapui.eval)
 
-vim.keymap.set('n', '<F5>', dap.continue)
 vim.keymap.set('n', '<F8>', dap.step_over)
 vim.keymap.set('n', '<F7>', dap.step_into)
 vim.keymap.set('n', '<S-F8>', dap.step_out)
+vim.keymap.set('n', '<leader>dd', dap.repl.open)
 
 -- signature help
 vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,

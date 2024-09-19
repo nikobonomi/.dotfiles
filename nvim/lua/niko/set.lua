@@ -20,3 +20,5 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
+
+vim.fn.system('tmux rename-window "[NVIM] $(basename $PWD)"')
