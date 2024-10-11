@@ -77,13 +77,8 @@ local function jdtls_on_attach(client, bufnr)
     require('jdtls.dap').setup_dap_main_class_configs()
 
     local opts = { buffer = bufnr }
-    vim.keymap.set('n', '<leader>df', "<cmd>lua require('jdtls').test_class()<cr>", opts)
-    vim.keymap.set('n', '<leader>dn', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
-
-    -- The following mappings are based on the suggested usage of nvim-jdtls
-    -- https://github.com/mfussenegger/nvim-jdtls#usage
-
-    local opts = { buffer = bufnr }
+    vim.keymap.set('n', '<leader>tc', "<cmd>lua require('jdtls').test_class()<cr>", opts)
+    vim.keymap.set('n', '<leader>tt', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
     vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
     vim.keymap.set('n', 'crv', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
     vim.keymap.set('x', 'crv', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)

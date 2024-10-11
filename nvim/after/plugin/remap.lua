@@ -3,6 +3,7 @@ local ufo = require('ufo')
 local harpoon = require("harpoon")
 local dap = require('dap')
 local dapui = require('dapui')
+local jdtls = require('jdtls')
 
 vim.g.mapleader = " "
 
@@ -71,6 +72,9 @@ vim.keymap.set('n', '<F3>', dap.continue)
 vim.keymap.set('n', '<F4>', dap.step_over)
 vim.keymap.set('n', '<F5>', dap.step_into)
 vim.keymap.set('n', '<S-F5>', dap.step_out)
+
+-- actions
+vim.keymap.set({ "n", "v" }, "<A-a>", vim.lsp.buf.code_action)
 
 -- signature help
 vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,
