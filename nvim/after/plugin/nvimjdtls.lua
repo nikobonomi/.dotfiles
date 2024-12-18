@@ -79,7 +79,10 @@ local function jdtls_on_attach(client, bufnr)
     local opts = { buffer = bufnr }
     vim.keymap.set('n', '<leader>tc', "<cmd>lua require('jdtls').test_class()<cr>", opts)
     vim.keymap.set('n', '<leader>tt', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
+    vim.keymap.set('n', '<leader>tgg', "<cmd>lua require('jdtls.tests').goto_subjects()<cr>", opts)
+    vim.keymap.set('n', '<leader>tg', "<cmd>lua require('jdtls.tests').generate()<cr>", opts)
     vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
+
     vim.keymap.set('n', 'crv', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
     vim.keymap.set('x', 'crv', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
     vim.keymap.set('n', 'crc', "<cmd>lua require('jdtls').extract_constant()<cr>", opts)

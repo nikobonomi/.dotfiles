@@ -73,6 +73,13 @@ vim.keymap.set('n', '<F4>', dap.step_over)
 vim.keymap.set('n', '<F5>', dap.step_into)
 vim.keymap.set('n', '<S-F5>', dap.step_out)
 
+-- lsp navigation
+vim.keymap.set("n", "<leader>en",
+    function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "<leader>ep",
+    function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float)
+
 -- actions
 vim.keymap.set({ "n", "v" }, "<A-a>", vim.lsp.buf.code_action)
 

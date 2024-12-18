@@ -34,6 +34,8 @@ return require('packer').startup(function(use)
 
     use 'christoomey/vim-tmux-navigator'
 
+    use 'nvim-treesitter/nvim-treesitter-context'
+
     use {
         'VonHeikemen/fine-cmdline.nvim',
         requires = {

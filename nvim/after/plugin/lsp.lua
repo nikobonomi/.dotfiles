@@ -25,14 +25,19 @@ lsp_zero.format_on_save({
     servers = {
         ['html'] = { 'html' },
         ['rust_analyzer'] = { 'rs' },
-        ['jdtls'] = { 'java' },
         ['jsonls'] = { 'json' },
         ['yamlls'] = { 'yaml' },
-        ['lua_ls'] = { 'lua' },
-        ['lemminx'] = { 'xml' },
-
+        ['lua_ls'] = { 'lua' }
     }
 })
+
+vim.filetype.add {
+    pattern = {
+        ['.*/openapi/.*%.ya?ml'] = 'yaml.openapi',
+        ['.*/openapi/.*%.ya?ml'] = 'yaml.openapi',
+        ['.*/openapi/.*%.json'] = 'json.openapi',
+    },
+}
 
 -- eslint fix on save for ts and js files
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -44,6 +49,11 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 vim.api.nvim_create_autocmd('BufWritePost', {
     pattern = { '*.java' },
     command = 'silent !google-java-format -r %',
+})
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = { '*.xml' },
+    command = 'silent !xmlformat --overwrite --blanks %',
 })
 
 
