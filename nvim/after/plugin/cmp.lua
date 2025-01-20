@@ -7,8 +7,8 @@ cmp.setup({
         completeopt = 'menu,menuone,noinsert'
     },
     sources = {
-        --{ name = "copilot" },
         { name = 'nvim_lsp' },
+        --{ name = "copilot" },
     },
     mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
