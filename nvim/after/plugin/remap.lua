@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>qs", ":wq<CR>")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
+vim.keymap.set("v", "<leader>y", "\"+y")
 
 -- resize splits
 vim.keymap.set("n", "<C-A-j>", "20<C-w>+")
