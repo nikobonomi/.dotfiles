@@ -11,7 +11,7 @@ sudo apt update
 
 sudo apt install curl tmux thefuck -y
 
-if ! rust --version  &> /dev/null; then
+if  rust --version  &> /dev/null; then
     echo "========= installing rust"
     curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 fi

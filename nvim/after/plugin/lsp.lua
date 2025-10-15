@@ -57,15 +57,19 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 
-require('lspconfig').ts_ls.setup({
-    single_file_support = false,
-    on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr }
-        vim.keymap.set('n', '<A-o>',
-            '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})<cr>',
-            opts)
-    end
+vim.lsp.config("ts_ls", {
+  flags = { debounce_text_changes = 300 }
 })
+vim.lsp.enable({"ts_ls"})
+-- require('lspconfig').ts_ls.setup({
+--     single_file_support = false,
+--     on_attach = function(client, bufnr)
+--         local opts = { buffer = bufnr }
+--         vim.keymap.set('n', '<A-o>',
+--             '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.fn.expand("%:p")}})<cr>',
+--             opts)
+--     end
+-- })
 
 require('mason-lspconfig').setup({
     ensure_installed = {
