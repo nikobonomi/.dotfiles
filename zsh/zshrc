@@ -115,9 +115,8 @@ elif command -v apt > /dev/null; then
     source "$ZSH_CUSTOM"/os/debian.zsh
 fi
 
-#alias ll="colorls -A"
-#alias ls="colorls"
-#alias lsa="colorls -lA --sd"
+export PATH="$PATH:/opt/nvim/"
+
 alias vi="nvim"
 alias cl="clear"
 alias fu="fuck"
@@ -163,3 +162,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Created by `pipx` on 2024-09-13 09:55:57
 export PATH="$PATH:/Users/bonomin/.local/bin"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
