@@ -38,6 +38,7 @@ vim.keymap.set("n", "<C-g>", ":HopWord<CR>")
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
 vim.keymap.set('n', '<leader>fb', function() telescope_builtin.buffers({ sort_mru = true }) end, {})
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics, {})
 vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, {})
 vim.keymap.set('n', '<leader>gf', telescope_builtin.git_files, {})
 
@@ -87,3 +88,6 @@ vim.keymap.set({ "n", "v" }, "<A-a>", vim.lsp.buf.code_action)
 -- signature help
 vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,
     { silent = true, noremap = true, desc = 'toggle signature' })
+
+-- theme toggle
+vim.keymap.set('n', '<leader>ts', require("onedark").toggle)

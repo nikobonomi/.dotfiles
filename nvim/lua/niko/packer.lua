@@ -130,5 +130,5 @@ return require('packer').startup(function(use)
 
     use 'ja-ford/delaytrain.nvim'
 
-    --use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+    use 'OXY2DEV/markview.nvim'
 end)
