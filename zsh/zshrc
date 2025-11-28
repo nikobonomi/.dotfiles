@@ -115,13 +115,14 @@ elif command -v apt > /dev/null; then
     source "$ZSH_CUSTOM"/os/debian.zsh
 fi
 
-alias ll="colorls -A"
-alias ls="colorls"
-alias lsa="colorls -lA --sd"
+#alias ll="colorls -A"
+#alias ls="colorls"
+#alias lsa="colorls -lA --sd"
 alias vi="nvim"
 alias cl="clear"
 alias fu="fuck"
 alias enve="set -o allexport && source .env && set +o allexport"
+alias cpilot="export NODE_TLS_REJECT_UNAUTHORIZED=0 && copilot"
 
 spring-run() {
     local debug=false
