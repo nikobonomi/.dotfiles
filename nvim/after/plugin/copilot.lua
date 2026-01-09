@@ -1,4 +1,5 @@
 require('copilot').setup({
+    copilot_node_command = vim.fn.expand('~/.nvm/versions/node/v24.11.1/bin/node'),
     panel = {
         auto_refresh = true,
         layout = {

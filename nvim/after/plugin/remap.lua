@@ -70,6 +70,7 @@ vim.keymap.set('n', '<leader>b', dap.toggle_breakpoint, { noremap = true })
 vim.keymap.set('n', '<leader>du', dapui.toggle)
 vim.keymap.set('n', '<leader>ev', dapui.eval)
 
+vim.keymap.set('n', '<leader>rl', dap.run_last)
 vim.keymap.set('n', '<F3>', dap.continue)
 vim.keymap.set('n', '<F4>', dap.step_over)
 vim.keymap.set('n', '<F5>', dap.step_into)

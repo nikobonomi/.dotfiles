@@ -153,6 +153,9 @@ local function jdtls_setup(event)
                 updateBuildConfiguration = 'interactive',
                 runtimes = path.runtimes,
             },
+            project = {
+                outputPath = data_dir .. '/bin',
+            },
             maven = {
                 downloadSources = true,
             },
