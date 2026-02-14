@@ -85,6 +85,7 @@ vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float)
 
 -- actions
 vim.keymap.set({ "n", "v" }, "<A-a>", vim.lsp.buf.code_action)
+vim.keymap.set({ "n", "v" }, "<leader>fo", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end, {})
 
 -- signature help
 vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,

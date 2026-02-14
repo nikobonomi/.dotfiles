@@ -28,11 +28,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Format on save for specific filetypes
 local format_on_save_filetypes = {
-    html = true,
-    rs = true,
-    json = true,
-    yaml = true,
-    lua = true
+    html = false,
+    rs = false,
+    json = false,
+    yaml = false,
+    lua = false
 }
 
 vim.api.nvim_create_autocmd('BufWritePre', {
