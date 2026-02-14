@@ -34,7 +34,8 @@ return require('packer').startup(function(use)
 
     use 'christoomey/vim-tmux-navigator'
 
-    use 'nvim-treesitter/nvim-treesitter-context'
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master' }
+    use { 'nvim-treesitter/nvim-treesitter-context',  branch = 'master' }
 
     use {
         'VonHeikemen/fine-cmdline.nvim',
@@ -63,7 +64,6 @@ return require('packer').startup(function(use)
 
     use "sindrets/diffview.nvim"
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     use 'mbbill/undotree'
 
