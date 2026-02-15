@@ -23,6 +23,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
         
         require('lsp_signature').on_attach(lsp_signature_config, bufnr)
+
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client.name == "jdtls" then
+          vim.keymap.set('n', '<leader>tc', "<cmd>lua require('jdtls').test_class()<cr>", opts)
+          vim.keymap.set('n', '<leader>tt', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
+          vim.keymap.set('n', '<leader>tgg', "<cmd>lua require('jdtls.tests').goto_subjects()<cr>", opts)
+          vim.keymap.set('n', '<leader>tg', "<cmd>lua require('jdtls.tests').generate()<cr>", opts)
+          vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
+        end
     end,
 })
 
