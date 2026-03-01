@@ -4,6 +4,11 @@ local mason_home = (mason_env or mason_path) .. "/packages"
 
 local java_debug = mason_home .. "/java-debug-adapter"
 local java_test = mason_home .. "/java-test"
+local jdtls = mason_home .. "/jdtls"
+
+local lombok_path = jdtls .. "/lombok.jar"
+
+vim.fn.setenv('JDTLS_JVM_ARGS', '-javaagent:' .. lombok_path)
 
 local java_debug_bundle = vim.split(
     vim.fn.glob(java_debug .. '/extension/server/com.microsoft.java.debug.plugin-*.jar'),
