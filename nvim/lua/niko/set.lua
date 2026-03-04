@@ -22,4 +22,6 @@ vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
 
+vim.opt.switchbuf = "useopen,usetab"
+
 vim.fn.system('tmux rename-window "[NVIM] $(basename $PWD)"')
