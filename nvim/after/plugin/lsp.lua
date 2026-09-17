@@ -26,11 +26,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if client.name == "jdtls" then
-          vim.keymap.set('n', '<leader>tc', "<cmd>lua require('jdtls').test_class()<cr>", opts)
-          vim.keymap.set('n', '<leader>tt', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
-          vim.keymap.set('n', '<leader>tgg', "<cmd>lua require('jdtls.tests').goto_subjects()<cr>", opts)
+          vim.keymap.set('n', '<leader>tc', ":JavaTestRunCurrentClass", opts)
+          vim.keymap.set('n', '<leader>tt', ":JavaTestRunCurrentMethod", opts)
           vim.keymap.set('n', '<leader>tg', "<cmd>lua require('jdtls.tests').generate()<cr>", opts)
-          vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
         end
     end,
 })
@@ -91,6 +89,7 @@ local servers = {
     'lua_ls',
     'rust_analyzer',
     'lemminx',
+    'tsp_server',
     'eslint'
 }
 

@@ -18,8 +18,9 @@ return require('packer').startup(function(use)
         config = function()
             require('mason').setup({})
         end }
+
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim', tag = 'v0.2.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -34,7 +35,7 @@ return require('packer').startup(function(use)
 
     use 'christoomey/vim-tmux-navigator'
 
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'master' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = 'main' }
     use { 'nvim-treesitter/nvim-treesitter-context',  branch = 'master' }
 
     use {
@@ -46,20 +47,10 @@ return require('packer').startup(function(use)
 
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
-    use({
-        "utilyre/barbecue.nvim",
-        tag = "*",
-        requires = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-        after = "nvim-web-devicons",       -- keep this if you're using NvChad
-    })
-
 
     use {
-        'phaazon/hop.nvim',
-        branch = 'v2', -- optional but strongly recommended
+        'smoka7/hop.nvim',
+        tag = '*', -- optional but strongly recommended
     }
 
     use "sindrets/diffview.nvim"
@@ -97,8 +88,11 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },
 
             -- jdtls extension
-            { 'mfussenegger/nvim-jdtls' },
+            --{ 'mfussenegger/nvim-jdtls' },
+
             { 'nvim-neotest/nvim-nio' },
+            { 'JavaHello/spring-boot.nvim' },
+            { 'nvim-java/nvim-java' },
 
             { 'rcarriga/nvim-dap-ui' },
             { 'rcarriga/cmp-dap' },
@@ -130,5 +124,5 @@ return require('packer').startup(function(use)
 
     use 'ja-ford/delaytrain.nvim'
 
-    use 'OXY2DEV/markview.nvim'
+    --use 'OXY2DEV/markview.nvim'
 end)

@@ -3,7 +3,7 @@ local ufo = require('ufo')
 local harpoon = require("harpoon")
 local dap = require('dap')
 local dapui = require('dapui')
-local jdtls = require('jdtls')
+--local jdtls = require('jdtls')
 
 vim.g.mapleader = " "
 
@@ -86,6 +86,12 @@ vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float)
 -- actions
 vim.keymap.set({ "n", "v" }, "<A-a>", vim.lsp.buf.code_action)
 vim.keymap.set({ "n", "v" }, "<leader>fo", function() vim.lsp.buf.format({ timeout_ms = 10000 }) end, {})
+vim.keymap.set('n', '<A-o>', function()
+  vim.lsp.buf.code_action({
+    context = { only = { 'source.organizeImports' } },
+    apply = true,
+  })
+end)
 
 -- signature help
 vim.keymap.set({ 'n' }, 'gs', function() require('lsp_signature').toggle_float_win() end,
