@@ -124,5 +124,5 @@ return require('packer').startup(function(use)
 
     use 'ja-ford/delaytrain.nvim'
 
-    --use 'OXY2DEV/markview.nvim'
+    use 'OXY2DEV/markview.nvim'
 end)
