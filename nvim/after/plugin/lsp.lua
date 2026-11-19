@@ -5,6 +5,55 @@ local lsp_signature_config = {
     }
 }
 
+vim.api.nvim_create_user_command('LspInfo', function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[bufnr].filetype
+    local lines = { 'LSP Info', '', 'Buffer: ' .. vim.api.nvim_buf_get_name(bufnr), 'Filetype: ' .. filetype, '', 'Attached clients:' }
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+    if #clients == 0 then
+        table.insert(lines, '  none')
+    else
+        for _, client in ipairs(clients) do
+            table.insert(lines, string.format(
+                '  %s (id: %d, %s)',
+                client.name,
+                client.id,
+                client:is_stopped() and 'stopped' or 'running'
+            ))
+            table.insert(lines, '    root: ' .. (client.root_dir or 'none'))
+        end
+    end
+
+    table.insert(lines, '')
+    table.insert(lines, 'Enabled for this filetype:')
+    local enabled = {}
+    for name, config in pairs(vim.lsp.config) do
+        if config.filetypes and vim.tbl_contains(config.filetypes, filetype) and vim.lsp.is_enabled(name) then
+            table.insert(enabled, name)
+        end
+    end
+    table.sort(enabled)
+    table.insert(lines, #enabled > 0 and '  ' .. table.concat(enabled, ', ') or '  none')
+
+    local info_buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_lines(info_buf, 0, -1, false, lines)
+    vim.bo[info_buf].filetype = 'lspinfo'
+    vim.bo[info_buf].modifiable = false
+    vim.bo[info_buf].bufhidden = 'wipe'
+    vim.api.nvim_open_win(info_buf, true, {
+        relative = 'editor',
+        width = math.min(90, math.max(50, vim.o.columns - 8)),
+        height = math.min(#lines, math.max(10, vim.o.lines - 6)),
+        col = math.max(0, math.floor((vim.o.columns - math.min(90, math.max(50, vim.o.columns - 8))) / 2)),
+        row = math.max(0, math.floor((vim.o.lines - math.min(#lines, math.max(10, vim.o.lines - 6))) / 2)),
+        style = 'minimal',
+        border = 'rounded',
+        title = ' LSP Info ',
+        title_pos = 'center',
+    })
+end, { desc = 'Show LSP clients for the current buffer' })
+
 -- LSP attach configuration
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -26,9 +75,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if client.name == "jdtls" then
+          client.server_capabilities.semanticTokensProvider = nil
           vim.keymap.set('n', '<leader>tc', ":JavaTestRunCurrentClass", opts)
           vim.keymap.set('n', '<leader>tt', ":JavaTestRunCurrentMethod", opts)
-          vim.keymap.set('n', '<leader>tg', "<cmd>lua require('jdtls.tests').generate()<cr>", opts)
         end
     end,
 })
@@ -52,6 +101,11 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end,
 })
 
+vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = { '*.java' },
+    command = 'silent !google-java-format -r %',
+})
+
 vim.filetype.add {
     pattern = {
         ['.*/openapi/.*%.ya?ml'] = 'yaml.openapi',
@@ -65,11 +119,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
     command = 'silent! EslintFixAll',
     group = vim.api.nvim_create_augroup('MyAutocmdsJavaScripFormatting', {}),
-})
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-    pattern = { '*.java' },
-    command = 'silent !google-java-format -r %',
 })
 
 vim.api.nvim_create_autocmd('BufWritePost', {
